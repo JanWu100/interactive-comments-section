@@ -1,0 +1,147 @@
+.reply {
+  position: relative;
+  display: grid;
+  background: white;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 10px;
+  gap: 2rem;
+  grid-template-columns: 100px 1fr;
+  margin: 2rem 0 2rem 2rem;
+}
+
+.reply::before {
+  content: "";
+  background: #e8e9ed;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  transform: translateX(-2rem);
+}
+
+.reply:last-child::before {
+  transform: translate(-2rem, -2rem);
+  height: calc(100% + 2rem) ;
+}
+.reply:first-child::before {
+  transform: translateX(-2rem);
+}
+
+.author-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  grid-column: 1/3;
+}
+.avatar {
+  height: 33px;
+}
+
+.author {
+  font-weight: 500;
+  color: hsl(212, 24%, 26%);
+}
+.date {
+  color: #626367;
+}
+
+.comment-body {
+  text-align: left;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #626367;
+  grid-column: 1/3;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.quantity {
+  background-color: #f5f6fa;
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  border-radius: 15px;
+  width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 1rem;
+  font-weight: 700;
+  color: hsl(239, 57%, 85%);
+}
+
+input {
+  border: none;
+  background: none;
+  font-weight: 500;
+
+  text-align: center;
+  color: #3b3d88;
+  padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.badge {
+  background-color: #5258b6;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.3rem 0.6rem 0.5rem;
+  border-radius: 2px;
+}
+
+@media (min-width: 650px) {
+  .reply {
+    display: grid;
+    grid-template-columns: 4rem 1fr auto;
+    margin: 2rem 0 2rem 7rem;
+  }
+
+  .quantity {
+    grid-row: 1/4;
+  }
+  .author-wrapper {
+    grid-column: 2/3;
+  }
+  .comment-body {
+    grid-column: 2/4;
+  }
+  .control {
+    grid-column: 3/4;
+    grid-row: 1/1;
+  }
+  .quantity {
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start;
+    height: min(100%, 10rem);
+    width: 100%;
+  }
+  .reply::before {
+    transform: translateX(-3.5rem);
+  }
+  
+  .reply:last-child::before {
+    transform: translate(-3.5rem, -2rem);
+    height: 100%;
+  }
+  .reply:first-child::before {
+    transform: translateX(-3.5rem);
+  }
+}
