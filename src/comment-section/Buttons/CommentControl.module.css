@@ -1,0 +1,19 @@
+
+button {
+    font-weight: 500;
+}
+img {
+    margin-right: 5px;
+}
+
+.edit {
+    color: #5357B6;
+}
+
+.delete {
+    color: hsl(358, 79%, 66%);
+}
+
+.reply {
+    color: #5357B6;
+}

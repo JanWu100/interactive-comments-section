@@ -51,10 +51,13 @@ gap: 1rem
 button {
     background: none;
     border: none;
+    cursor: pointer;
+}
+
+.btn {
     padding: 0 1rem;
     font-weight: 700;
     color: hsl(239, 57%, 85%);
-    cursor: pointer;
 }
 
 input {
@@ -67,13 +70,6 @@ input {
     padding: 0;
 }
 
-.reply {
-    color:#3b3d88;
-    font-weight: 500;
-}
-.reply >img {
-    margin-right: 5px;
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
