@@ -1,6 +1,7 @@
 import React from "react";
 import Comment from "./Comment";
 import classes from "./CommentSection.module.css"
+import UserInput from "./UserInput";
 
 const CommentSection = (props)=> {
 
@@ -11,7 +12,7 @@ const CommentSection = (props)=> {
            {comments.map(comment => <Comment key={comment.id} {...comment} currentUser={props.data.currentUser}/>)}
             
 
-
+        <UserInput {...props.data}/>
         </section>
 
 

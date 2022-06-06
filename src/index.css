@@ -2,9 +2,7 @@ html {
   font-size: 62.5%;
 }
 
-:root {
-  --color-dark-blue: hsl(212, 24%, 26%);
-}
+
 
 *, *::before, *::after {
   box-sizing: border-box;

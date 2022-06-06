@@ -7,7 +7,7 @@
   border-radius: 10px;
   gap: 2rem;
   grid-template-columns: 100px 1fr;
-  margin: 2rem 0 2rem 2rem;
+  margin: 2rem 0 0 2rem;
 }
 
 .reply::before {
@@ -110,7 +110,7 @@ input::-webkit-inner-spin-button {
   .reply {
     display: grid;
     grid-template-columns: 4rem 1fr auto;
-    margin: 2rem 0 2rem 7rem;
+    margin: 2rem 0 0 7rem;
   }
 
   .quantity {
