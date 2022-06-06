@@ -1,11 +1,14 @@
 import './App.css';
-import Comment from './comment-section/Comment';
+import CommentSection from './components/CommentSection';
+import DUMMY_DATA from "./assets/data.json"
+
 
 function App() {
+
+
+
   return (
-    <div className="App">
-      <Comment></Comment>
-    </div>
+    <CommentSection data={DUMMY_DATA}/>
   );
 }
 

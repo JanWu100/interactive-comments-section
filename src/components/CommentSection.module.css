@@ -1,0 +1,9 @@
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 730px;
+    margin: 0 auto;
+    
+}
