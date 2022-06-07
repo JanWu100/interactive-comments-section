@@ -6,6 +6,12 @@ import iconDelete from "../../assets/images/icon-delete.svg"
 
 
 const CommentControl = (props) => {
+
+    const replyHandler = () => {
+        // console.log("reply")
+        props.replyHandler()
+      };
+
     if (props.type === "edit") {
         return (
             <button className={classes.edit}>
@@ -20,7 +26,7 @@ const CommentControl = (props) => {
         )  
     } else {
         return (
-            <button className={classes.reply}>
+            <button className={classes.reply} onClick={replyHandler}>
                 <img src={iconReply} alt=""></img>Reply
               </button>
         )  

@@ -1,6 +1,7 @@
 
 button {
     font-weight: 500;
+    
 }
 img {
     margin-right: 5px;
@@ -16,4 +17,17 @@ img {
 
 .reply {
     color: #5357B6;
+}
+
+.edit:hover {
+    color: #9092c2;
+}
+
+.delete:hover {
+    color: hsl(357, 100%, 86%);
+
+}
+
+.reply:hover {
+    color: #9092c2;
 }

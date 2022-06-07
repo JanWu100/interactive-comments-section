@@ -7,7 +7,7 @@ const UserInput = (props) => {
       <img className={classes.avatar} src={props.currentUser.image.png} alt=""></img>
       <textarea
         rows="4"
-        maxLength="150"
+        maxLength="120"
         placeholder="Add a comment..."
       ></textarea>
       <button className={classes.btn}>send</button>

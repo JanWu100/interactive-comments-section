@@ -80,6 +80,7 @@ button {
   color: hsl(239, 57%, 85%);
 }
 
+
 input {
   border: none;
   background: none;
@@ -104,6 +105,17 @@ input::-webkit-inner-spin-button {
   line-height: 1;
   padding: 0.3rem 0.6rem 0.5rem;
   border-radius: 2px;
+}
+
+.link {
+    font-weight: 500;
+    color:#5258b6;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: #3b3d88;
+    text-decoration: underline;
 }
 
 @media (min-width: 650px) {
