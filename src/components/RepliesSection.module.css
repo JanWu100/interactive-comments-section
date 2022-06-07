@@ -1,0 +1,16 @@
+.replies-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 1.5rem;
+    margin: 2rem 0 0;
+    border-left: 1px solid rgb(215, 215, 215);
+  }
+  
+  @media (min-width: 650px) {
+    .replies-section {
+        margin-left: 2rem;
+        padding-left: 2rem;
+        max-width: 760px;
+      }
+  }

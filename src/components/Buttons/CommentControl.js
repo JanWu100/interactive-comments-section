@@ -14,19 +14,19 @@ const CommentControl = (props) => {
 
     if (props.type === "edit") {
         return (
-            <button className={classes.edit}>
+            <button className={`${classes.edit} ${classes.btn}`}>
                 <img src={iconEdit} alt=""></img>Edit
               </button>
         )      
     } else if (props.type === "delete") {
         return (
-            <button className={classes.delete}>
+            <button className={`${classes.delete} ${classes.btn}`}>
                 <img src={iconDelete} alt=""></img>Delete
               </button>
         )  
     } else {
         return (
-            <button className={classes.reply} onClick={replyHandler}>
+            <button className={`${classes.reply} ${classes.btn}`} onClick={replyHandler}>
                 <img src={iconReply} alt=""></img>Reply
               </button>
         )  

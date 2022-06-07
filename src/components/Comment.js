@@ -1,17 +1,40 @@
-import React from "react";
+import React, {useState} from "react";
 import classes from "./Comment.module.css";
 import CommentControl from "./Buttons/CommentControl";
-import Reply from "./Reply";
+import RepliesSection from "./RepliesSection";
+import UserInput from "./UserInput";
 
 const Comment = (props) => {
   const isCurrentUser =
-    props.currentUser.username === props.user.username ? true : false;
+    props.userMe.username === props.user.username ? true : false;
   const replies = props.replies;
+  const userMe = props.userMe
+
+  const [isReplying, setIsReplying] = useState(false)
 
   const replyHandler = () => {
-    console.log("aaa")
+    setIsReplying(true)
+  };
+
+  const renderReplyInput = () => {
+    if ( isReplying === true) {
+      return (
+        <UserInput {...props} userMe={userMe} />
+      )
+    }
   }
 
+  const setControllers = () => {
+    if (isCurrentUser) {
+      return (
+        <>
+          <CommentControl type="delete" /> <CommentControl type="edit" />
+        </>
+      );
+    } else {
+      return <CommentControl replyHandler={replyHandler} />;
+    }
+  };
 
   return (
     <div>
@@ -27,7 +50,10 @@ const Comment = (props) => {
           <p className={classes.date}>{props.createdAt}</p>
         </div>
 
-        <p className={classes["comment-body"]}>{props.content}</p>
+        <p className={classes["comment-body"]}>
+          {props.replyingTo ? <span className={classes.link}>{"@" + props.replyingTo + " "}</span> : ""}  
+          {props.content}
+        </p>
 
         <div className={classes.quantity}>
           <button className={classes.btn}>+</button>
@@ -42,21 +68,17 @@ const Comment = (props) => {
           <button className={classes.btn}>-</button>
         </div>
 
-        <div className={classes.control}>
-          {isCurrentUser ? (
-            <>
-              <CommentControl type="delete" /> <CommentControl type="edit" />
-            </>
-          ) : (
-            <CommentControl replyHandler={replyHandler}/>
-          )}
-        </div>
+        <div className={classes.control}>{setControllers()}</div>
       </article>
-      {replies.map((reply) => (
-        <Reply key={reply.id} {...reply} currentUser={props.currentUser}/>
-      ))}
+    {renderReplyInput()}
+      {replies && <RepliesSection data={replies} userMe={userMe}/>}
     </div>
   );
 };
 
 export default Comment;
+
+
+// {replies.map((reply) => (
+//   <Reply key={reply.id} {...reply} currentUser={props.currentUser} />
+// ))}

@@ -5,6 +5,7 @@ import UserInput from "./UserInput";
 
 const CommentSection = (props) => {
   const comments = props.data.comments;
+  const userMe = props.userMe
 
   return (
     <section className={classes["comment-section"]}>
@@ -12,10 +13,11 @@ const CommentSection = (props) => {
         <Comment
           key={comment.id}
           {...comment}
-          currentUser={props.data.currentUser}
+          userMe={userMe}
         />
+
       ))}
-      <UserInput {...props.data} />
+      <UserInput {...props.data} userMe={userMe}/>
     </section>
   );
 };

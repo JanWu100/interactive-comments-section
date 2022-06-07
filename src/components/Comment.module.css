@@ -1,7 +1,6 @@
 .comment {
   display: grid;
   background: white;
-  margin: 0 auto;
   padding: 2rem;
   border-radius: 10px;
   gap: 2rem;
@@ -49,16 +48,17 @@
   width: 100%;
 }
 
-button {
+.btn {
   background: none;
   border: none;
   cursor: pointer;
-}
-
-.btn {
   padding: 1rem;
   font-weight: 700;
   color: hsl(239, 57%, 85%);
+}
+
+.btn:hover {
+  color: #3b3d88;
 }
 
 input {
@@ -68,6 +68,12 @@ input {
   text-align: center;
   color: #3b3d88;
   padding: 0;
+}
+
+.link {
+  font-weight: 500;
+  color:#5258b6;
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
