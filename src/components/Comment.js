@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import classes from "./Comment.module.css";
 import CommentControl from "./Buttons/CommentControl";
 import RepliesSection from "./RepliesSection";
@@ -8,27 +8,48 @@ const Comment = (props) => {
   const isCurrentUser =
     props.userMe.username === props.user.username ? true : false;
   const replies = props.replies;
-  const userMe = props.userMe
+  const userMe = props.userMe;
 
-  const [isReplying, setIsReplying] = useState(false)
+  const [isReplying, setIsReplying] = useState(false);
 
   const replyHandler = () => {
-    setIsReplying(true)
+    setIsReplying(true);
+  };
+
+  const addReply = (value) => {
+    let id = props.id;
+    setIsReplying(false);
+    props.addReply(value, id);
+  };
+  const deleteComment = () => {
+    let id = props.id;
+    props.deleteComment(id);
+  };
+
+  const deleteReply = (id) => {
+    props.deleteReply(id);
   };
 
   const renderReplyInput = () => {
-    if ( isReplying === true) {
+    if (isReplying === true) {
       return (
-        <UserInput {...props} userMe={userMe} />
-      )
+        <UserInput
+          {...props}
+          userMe={userMe}
+          onReplyHandler={onReplyingHandler}
+          addReply={addReply}
+        />
+      );
     }
-  }
+  };
+  const onReplyingHandler = () => {};
 
   const setControllers = () => {
     if (isCurrentUser) {
       return (
         <>
-          <CommentControl type="delete" /> <CommentControl type="edit" />
+          <CommentControl type="delete" deleteComment={deleteComment} />{" "}
+          <CommentControl type="edit" />
         </>
       );
     } else {
@@ -51,7 +72,11 @@ const Comment = (props) => {
         </div>
 
         <p className={classes["comment-body"]}>
-          {props.replyingTo ? <span className={classes.link}>{"@" + props.replyingTo + " "}</span> : ""}  
+          {props.replyingTo ? (
+            <span className={classes.link}>{"@" + props.replyingTo + " "}</span>
+          ) : (
+            ""
+          )}
           {props.content}
         </p>
 
@@ -70,14 +95,19 @@ const Comment = (props) => {
 
         <div className={classes.control}>{setControllers()}</div>
       </article>
-    {renderReplyInput()}
-      {replies && <RepliesSection data={replies} userMe={userMe}/>}
+      {renderReplyInput()}
+      {replies && (
+        <RepliesSection
+          data={replies}
+          userMe={userMe}
+          deleteComment={deleteReply}
+        />
+      )}
     </div>
   );
 };
 
 export default Comment;
-
 
 // {replies.map((reply) => (
 //   <Reply key={reply.id} {...reply} currentUser={props.currentUser} />
