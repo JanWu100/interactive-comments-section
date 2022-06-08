@@ -62,6 +62,14 @@ function App() {
     );
   };
 
+  const showData = () => {
+    console.log(data)
+  }
+
+  const showCommments = () => {
+    console.log(comments)
+  }
+
   return (
     <>
       <CommentSection
@@ -72,6 +80,8 @@ function App() {
         deleteComment={deleteComment}
         deleteReply={deleteReply}
       />
+      {/* <button onClick={showData}>SHOW DATA</button>
+      <button onClick={showCommments}>SHOW Comment</button> */}
     </>
   );
 }
