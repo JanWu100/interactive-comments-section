@@ -4,7 +4,6 @@ import classes from "./RepliesSection.module.css";
 
 const RepliesSection = (props) => {
   const replies = props.data;
-  const userMe = props.userMe;
 
   const deleteComment = (id) => {
     props.deleteComment(id);
@@ -17,7 +16,6 @@ const RepliesSection = (props) => {
           <Comment
             key={reply.id}
             {...reply}
-            userMe={userMe}
             deleteComment={deleteComment}
           />
         ))}

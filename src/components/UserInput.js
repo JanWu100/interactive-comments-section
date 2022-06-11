@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
+import UserContext from "./context/userContext";
 import classes from "./UserInput.module.css";
 
-const UserInput = ({ userMe, id, user, addReply }) => {
+const UserInput = ({ id, user, addReply }) => {
+  const currentUser = useContext(UserContext)
   const [input, setInput] = useState(id ? `@${user.username}, ` : "");
   const clickHandler = (event) => {
     const indexOfSpace = input.indexOf(" ");
@@ -14,10 +16,10 @@ const UserInput = ({ userMe, id, user, addReply }) => {
       score: 0,
       user: {
         image: {
-          png: userMe.image.png,
-          webp: userMe.image.webp,
+          png: currentUser.image.png,
+          webp: currentUser.image.webp,
         },
-        username: userMe.username,
+        username: currentUser.username,
       },
       replies: [],
     };
@@ -29,7 +31,7 @@ const UserInput = ({ userMe, id, user, addReply }) => {
 
   return (
     <div className={classes.card}>
-      <img className={classes.avatar} src={userMe.image.png} alt=""></img>
+      <img className={classes.avatar} src={currentUser.image.png} alt=""></img>
       <textarea
         rows="4"
         maxLength="120"

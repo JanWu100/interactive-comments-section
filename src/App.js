@@ -2,10 +2,10 @@ import "./App.css";
 import React, { useState } from "react";
 import CommentSection from "./components/CommentSection";
 import DUMMY_DATA from "./assets/data.json";
+import UserContext from "./components/context/userContext";
 
 function App() {
   const [data, setData] = useState(DUMMY_DATA);
-  const currentUser = data.currentUser;
   const [comments, setComments] = useState(data.comments);
 
   const addReply = (value) => {
@@ -16,11 +16,9 @@ function App() {
       comments: [...prevState.comments, updatedValue],
     }));
     setComments(data.comments);
-    console.log(data);
   };
 
   const addReplyToComment = (value, id) => {
-    console.log(id);
     const indexOfComment = data.comments.findIndex((x) => x.id === id);
     const replyingToWho = comments[indexOfComment].user.username;
 
@@ -64,17 +62,20 @@ function App() {
 
 
   return (
-    <>
+    <UserContext.Provider value={
+      {
+        "image": data.currentUser.image,
+        "username": data.currentUser.username
+      }
+    }>
       <CommentSection
         data={data}
-        userMe={currentUser}
         addReply={addReply}
         addReplyToComment={addReplyToComment}
         deleteComment={deleteComment}
         deleteReply={deleteReply}
       />
-  
-    </>
+    </UserContext.Provider>
   );
 }
 

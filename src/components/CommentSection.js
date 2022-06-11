@@ -5,7 +5,6 @@ import UserInput from "./UserInput";
 
 const CommentSection = (props) => {
   const comments = props.data.comments;
-  const userMe = props.userMe;
 
   const addReply = (value) => {
     props.addReply(value);
@@ -27,13 +26,12 @@ const CommentSection = (props) => {
         <Comment
           key={comment.id}
           {...comment}
-          userMe={userMe}
           addReply={addReplyToComment}
           deleteComment={deleteComment}
           deleteReply={deleteReply}
         />
       ))}
-      <UserInput {...props.data} userMe={userMe} addReply={addReply} />
+      <UserInput {...props.data} addReply={addReply} />
     </section>
   );
 };
